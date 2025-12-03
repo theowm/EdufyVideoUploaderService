@@ -10,4 +10,5 @@ public interface UploaderServiceInterface {
     Uploader addNewUploader(Uploader uploader);
     Uploader updateUploader(UUID id, Uploader uploader);
     void deleteUploader(UUID id);
+    public Uploader fetchUploader(UUID id);
 }

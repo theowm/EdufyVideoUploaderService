@@ -37,4 +37,10 @@ public class UploaderService implements UploaderServiceInterface {
     public void deleteUploader(UUID id) {
         uploaderRepository.deleteById(id);
     }
+
+    @Override
+    public Uploader fetchUploader(UUID id) {
+        return uploaderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Uploader not found: " + id));
+    }
 }

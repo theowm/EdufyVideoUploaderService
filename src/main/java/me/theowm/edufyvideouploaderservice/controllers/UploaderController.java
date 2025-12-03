@@ -47,4 +47,10 @@ public class UploaderController {
         return ResponseEntity.ok(uploaderService.updateUploader(uploaderId, uploader));
     }
 
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    @GetMapping("/{uploaderId}")
+    public ResponseEntity<Uploader> getUploader(@PathVariable UUID uploaderId) {
+        return ResponseEntity.ok(uploaderService.fetchUploader(uploaderId));
+    }
+
 }
